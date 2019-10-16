@@ -6,7 +6,7 @@ load_dotenv()
 # Import bot plugins.
 from plugins import (color, help, img, log, mod, util, welcome)
 
-TOKEN = os.environ.get("TOKEN")
+token = os.environ.get("TOKEN")
 prefix = os.environ.get("PREFIX")
 
 client = discord.Client()
@@ -23,5 +23,4 @@ async def on_message(message):
     if message.content.startswith(prefix + 'hello'):
         await message.channel.send('Hello! The prefix is ' + prefix)
 
-
-client.run(TOKEN)
+client.run(token)
