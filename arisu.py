@@ -36,7 +36,7 @@ async def on_message(message):
         avatarImage = Webhook.avatar_url_as(message.author, format=None, size=1024)
         embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=0x00ff00)
         embed.set_image(url=avatarImage)
-        await message.channel.send(embed=embed))
+        await message.channel.send(embed=embed)
     
 # Welcome
 #@client.event
