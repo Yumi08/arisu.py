@@ -36,7 +36,7 @@ async def on_message(message):
    
 ## Avatar
     if message.content.startswith(prefix + 'avatar'):
-        img.avatar_command() # Syntax Error
+        await img.avatar_command(message) # Syntax Error
 
     
 # Welcome
