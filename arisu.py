@@ -23,4 +23,26 @@ async def on_message(message):
     if message.content.startswith(prefix + 'hello'):
         await message.channel.send('Hello! The prefix is ' + prefix)
 
+# Util
+@client.event
+async def on_message(message):
+    if message.content.startswith(prefix + 'code'):
+        url = 'https://github.com/TheSorton/arisu.py'
+        await message.channel.send(url)
+    if message.content.startswith(prefix + 'embed'):
+        from discord import Webhook, AsyncWebhookAdapter
+        requestor = message.author
+        name = message.author.name
+        avatarImage = Webhook.avatar_url_as(message.author, format=None, size=1024)
+        embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=0x00ff00)
+        embed.set_image(url=avatarImage)
+        await message.channel.send(embed=embed))
+    
+# Welcome
+#@client.event
+#async def on_member_join(member):
+    #await client.send_message("Yeet")
+#async def on_member_remove(member):
+    #await client.send_message("Yote")
+
 client.run(token)
