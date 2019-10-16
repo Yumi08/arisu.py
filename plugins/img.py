@@ -1,5 +1,9 @@
- # In dire need of optimization 
-def avatar_command():
+ # In dire need of optimization
+import discord
+import os
+from colorthief import ColorThief
+
+async def avatar_command(message):
         if (message.mentions.__len__()>0):
             for user in message.mentions:
                 print(user.avatar_url)
