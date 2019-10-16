@@ -1,5 +1,7 @@
 import discord
 import os
+import time
+from discord.ext import commands
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -24,43 +26,18 @@ async def on_message(message):
         await message.channel.send('Hello! The prefix is ' + prefix)
 
 # Util
+
+## Code
 @client.event
 async def on_message(message):
     if message.content.startswith(prefix + 'code'):
         url = 'https://github.com/TheSorton/arisu.py'
         await message.channel.send(url)
    
-    if message.content.startswith(prefix + 'avatar'): # In dire need of optimization 
-        if (message.mentions.__len__()>0):
-            for user in message.mentions:
-                print(user.avatar_url)
-                from discord import Webhook, AsyncWebhookAdapter
-                requestor = message.author
-                name = user.name
-                avatarImage = user.avatar_url
-                os.system('curl -o .img.png {}'.format(avatarImage))
-                color_thief = ColorThief('.img.png')
-                dominant_color = color_thief.get_color(quality=1)
-                os.system('rm .img.png')
-                clr = '0x' + '%02X%02X%02X' % dominant_color
-                clr = int(clr, base=16)
-                embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
-                embed.set_image(url=avatarImage)
-                await message.channel.send(embed=embed)
-        else:
-                from discord import Webhook, AsyncWebhookAdapter
-                requestor = message.author
-                name = message.author.name
-                avatarImage = Webhook.avatar_url_as(message.author, format=None, size=1024)
-                os.system('curl -o .img.png {}'.format(avatarImage))
-                color_thief = ColorThief('.img.png')
-                dominant_color = color_thief.get_color(quality=1)
-                os.system('rm .img.png')
-                clr = '0x' + '%02X%02X%02X' % dominant_color
-                clr = int(clr, base=16)
-                embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
-                embed.set_image(url=avatarImage)
-                await message.channel.send(embed=embed)
+## Avatar
+    if message.content.startswith(prefix + 'avatar'):
+        img.avatar_command() # Syntax Error
+
     
 # Welcome
 #@client.event
