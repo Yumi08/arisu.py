@@ -3,6 +3,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# Import bot plugins.
+from plugins import (color, help, img, log, mod, util, welcome)
+
 TOKEN = os.environ.get("TOKEN")
 prefix = os.environ.get("PREFIX")
 
@@ -22,4 +25,3 @@ async def on_message(message):
 
 
 client.run(TOKEN)
-
