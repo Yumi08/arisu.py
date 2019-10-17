@@ -31,19 +31,19 @@ async def on_message(message):
 @client.event
 async def on_message(message):
     if message.content.startswith(prefix + 'code'):
-        url = 'https://github.com/TheSorton/arisu.py'
-        await message.channel.send(url)
-   
+        await util.code_command(message)
+
 ## Avatar
     if message.content.startswith(prefix + 'avatar'):
-        await img.avatar_command(message) # Syntax Error
+        await img.avatar_command(message)
 
-    
-# Welcome
-#@client.event
-#async def on_member_join(member):
-    #await client.send_message("Yeet")
-#async def on_member_remove(member):
-    #await client.send_message("Yote")
+# Welome events
+@client.event
+async def on_member_join(member):
+    await welcome.mem_join(member)
+
+@client.event
+async def on_member_remove(member):
+    await welcome.mem_leave(member)
 
 client.run(token)

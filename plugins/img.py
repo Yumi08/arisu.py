@@ -3,6 +3,7 @@ import discord
 import os
 from colorthief import ColorThief
 
+# Avatar command
 async def avatar_command(message):
         if (message.mentions.__len__()>0):
             for user in message.mentions:
@@ -34,3 +35,5 @@ async def avatar_command(message):
                 embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
                 embed.set_image(url=avatarImage)
                 await message.channel.send(embed=embed)
+
+
