@@ -28,6 +28,8 @@ async def on_message(message):
     if message.content.startswith(prefix + 'hello'):
         await message.channel.send('Hello! The prefix is ' + prefix)
 
+## Commands ##
+
 # Util
 ## Code
 @client.event
@@ -35,6 +37,7 @@ async def on_message(message):
     if message.content.startswith(prefix + 'code'):
         await util.code_command(message)
 
+# Img
 ## Avatar
     elif message.content.startswith(prefix + 'avatar'):
         await img.avatar_command(message)
@@ -47,11 +50,13 @@ async def on_message(message):
     elif message.content.startswith(prefix + 'ban'):
         await mod.ban(message)
 ## Mute
-    elif message.content.startswith(prefix+ 'mute'):
+    elif message.content.startswith(prefix + 'mute'):
         await mod.mute(message)
 ## unute
-    elif message.content.startswith(prefix+ 'unmute'):
+    elif message.content.startswith(prefix + 'unmute'):
         await mod.unmute(message)
+
+## End Commands ##
 
 # Welcome events
 @client.event
