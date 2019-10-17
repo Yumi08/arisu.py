@@ -35,14 +35,23 @@ async def on_message(message):
     if message.content.startswith(prefix + 'code'):
         await util.code_command(message)
 
-    elif message.content.startswith(prefix + 'kick'):
-        await mod.kick(message)
-
-    elif message.content.startswith(prefix + 'ban'):
-        await mod.ban(message)
 ## Avatar
     elif message.content.startswith(prefix + 'avatar'):
         await img.avatar_command(message)
+
+# Mod
+## Kick
+    elif message.content.startswith(prefix + 'kick'):
+        await mod.kick(message)
+## Ban
+    elif message.content.startswith(prefix + 'ban'):
+        await mod.ban(message)
+## Mute
+    elif message.content.startswith(prefix+ 'mute'):
+        await mod.mute(message)
+## unute
+    elif message.content.startswith(prefix+ 'unmute'):
+        await mod.unmute(message)
 
 # Welcome events
 @client.event
