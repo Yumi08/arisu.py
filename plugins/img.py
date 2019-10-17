@@ -2,13 +2,14 @@
 import discord
 import os
 from colorthief import ColorThief
+from discord import Webhook, AsyncWebhookAdapter
+
 
 # Avatar command
 async def avatar_command(message):
-        if (message.mentions.__len__()>0):
+        if (len(message.mentions) > 0):
             for user in message.mentions:
                 print(user.avatar_url)
-                from discord import Webhook, AsyncWebhookAdapter
                 requestor = message.author
                 name = user.name
                 avatarImage = user.avatar_url
@@ -22,7 +23,6 @@ async def avatar_command(message):
                 embed.set_image(url=avatarImage)
                 await message.channel.send(embed=embed)
         else:
-                from discord import Webhook, AsyncWebhookAdapter
                 requestor = message.author
                 name = message.author.name
                 avatarImage = Webhook.avatar_url_as(message.author, format=None, size=1024)
