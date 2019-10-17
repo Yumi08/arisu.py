@@ -3,8 +3,6 @@ import discord
 import os
 import json
 from colorthief import ColorThief
-import arisu
-
 from discord import Webhook, AsyncWebhookAdapter
 
 # Avatar command
