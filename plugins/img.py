@@ -1,7 +1,11 @@
  # In dire need of optimization
 import discord
 import os
+import json
 from colorthief import ColorThief
+import arisu
+
+
 
 # Avatar command
 async def avatar_command(message):

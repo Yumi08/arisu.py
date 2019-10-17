@@ -29,7 +29,7 @@ async def mute(message):
             if message.author.guild_permissions.administrator:
                 server = user.guild
                 target = server.get_member(user.id)
-                role = discord.utils.get(server.roles, name="muted")
+                role = discord.utils.get(server.roles, name="silenced")
                 await member.add_roles(target, role)
 
 async def unmute(message):
@@ -38,6 +38,6 @@ async def unmute(message):
             if message.author.guild_permissions.administrator:
                 server = user.guild
                 target = server.get_member(user.id)
-                role = discord.utils.get(server.roles, name="muted")
+                role = discord.utils.get(server.roles, name="silenced")
                 await member.remove_roles(target, role)
    
