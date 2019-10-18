@@ -1,4 +1,6 @@
  # In dire need of optimization
+import discord
+import requests
 from . import util
 
 # Avatar command
@@ -24,4 +26,30 @@ async def avatar_command(message):
         else:
                 embed = util.create_avatar_embed(message, message.author)
                 await message.channel.send(embed=embed)
+
+
+async def pape(message):
+    footer_url = 'https://pbs.twimg.com/profile_images/653341480640217088/t1c1aTc9.png'
+    url = 'https://wallhaven.cc/api/v1/search'
+    params = {'sorting': 'random'}
+
+    # In case a query exists (a!pape query).
+    if len(message.content.split()) >= 2:
+        query = ' '.join(message.content.split()[1:])
+        params['q'] = query
+
+    response = requests.get(url, params)
+
+    if len(response.json()['data']) > 0:
+        wallpaper_url = response.json()['data'][0]['url']
+        embed = discord.Embed(title='Wallpaper',
+                              description='[Source] ' + wallpaper_url)
+        embed = (embed.set_footer(text='This command is powered by wallhaven.cc',
+                                  icon_url=footer_url)
+                      .set_image(url=wallpaper_url))
+
+        await message.channel.send(embed=embed)
+
+    else:
+        await message.channel.send('No results found')
 
