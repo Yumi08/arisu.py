@@ -9,6 +9,26 @@ async def code_command(message):
 
 
 async def find_member(message, nickname):
+    """
+    Finds the first memeber that matches the nickname
+    on the guild where the message was sent.
+
+    Parameters
+    ----------
+    message : discord.Message
+        Message that triggered the event.
+    nickname : str
+        nickname of the user that might be
+        on the same guild where the message
+        was delivared.
+
+    Returns
+    -------
+    member : discord.Member
+        First discord member that matches the nickname.
+        If no member was found that matches the nickname
+        None will be returned.
+    """
     for member in message.guild.members:
         if nickname in member.nick:
             await member
