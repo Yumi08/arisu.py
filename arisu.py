@@ -34,7 +34,11 @@ async def foo(ctx, arg):
 
 @bot.command()
 async def avatar(ctx):
-                await  img.avatar_command(ctx.message)
+    await  img.avatar_command(ctx.message)
+
+@bot.command()
+async def pape(ctx):
+    await img.pape(ctx.message)
 
 # Welcome events
 @bot.event
