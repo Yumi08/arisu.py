@@ -10,7 +10,7 @@ async def avatar_command(message):
                 await message.channel.send(embed=embed)
 
         # If the message contains users but doesn't metion them.
-        elif len(message.content.split()) > 2:
+        elif len(message.content.split()) == 2:
             # Getting the users and removing nicknames that didn't match (None).
             nicknames = message.content.split()[1:]
             users = [util.find_member(message, nickname) for nickname in nicknames]

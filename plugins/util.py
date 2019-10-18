@@ -30,7 +30,7 @@ def find_member(message, nickname):
         None will be returned.
     """
     for member in message.guild.members:
-        if nickname in member.nick:
+        if nickname in member.display_name:
             return member
 
 
