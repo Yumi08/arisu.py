@@ -7,7 +7,7 @@ async def kick(message):
             if message.author.guild_permissions.administrator:
                 server = user.guild
                 await server.kick(user)
-                await message.channel.send('**{}** has been kicked'.format(user))
+                await message.channel.send(f'**{user}** has been kicked)')
 
 
 async def ban(message):
@@ -16,7 +16,7 @@ async def ban(message):
             if message.author.guild_permissions.administrator:
                 server = user.guild
                 await server.ban(user)
-                await message.channel.send('**{}** has been banned'.format(user))
+                await message.channel.send(f'**{user}** has been banned')
 
 
 async def mute(message):
