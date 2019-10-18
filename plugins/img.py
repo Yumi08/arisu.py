@@ -6,7 +6,7 @@ async def avatar_command(message):
         if len(message.mentions) > 0:
             for user in message.mentions:
                 print(user.avatar_url)
-                embed = utils.create_avatar_embed(message, user)
+                embed = util.create_avatar_embed(message, user)
                 await message.channel.send(embed=embed)
 
         # If the message contains users but doesn't metion them.
@@ -18,10 +18,10 @@ async def avatar_command(message):
 
             for user in users:
                 print(user.avatar_url)
-                embed = utils.create_avatar_embed(message, user)
+                embed = util.create_avatar_embed(message, user)
                 await message.channel.send(embed=embed)
 
         else:
-                embed = utils.create_avatar_embed(message, message.author)
+                embed = util.create_avatar_embed(message, message.author)
                 await message.channel.send(embed=embed)
 
