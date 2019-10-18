@@ -16,6 +16,24 @@ async def find_member(message, nickname):
     await None
 
 async def create_avatar_embed(message, user):
+    """
+    Creates an embed object that will contain the avatar
+    of the user and will 'mention' the author of the original
+    message.
+
+    Paramters
+    ---------
+    message : discord.Message
+        Message that triggered the event.
+    user : discord.Member
+        User from which it's avatar is going to be retrieved.
+
+    Returns
+    -------
+    embed : discord.Embed
+        embed containing the avatar of the user.
+    """
+
     requestor = message.author
     name = user.name
     avatarImage = user.avatar_url
