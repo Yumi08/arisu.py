@@ -31,9 +31,8 @@ def find_member(message, nickname):
     """
     for member in message.guild.members:
         if nickname in member.nick:
-            await member
+            return member
 
-    None
 
 def create_avatar_embed(message, user):
     """
@@ -66,4 +65,4 @@ def create_avatar_embed(message, user):
     embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
     embed.set_image(url=avatarImage)
 
-    embed
+    return embed
