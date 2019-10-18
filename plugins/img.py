@@ -42,12 +42,13 @@ async def pape(message):
 
     if len(response.json()['data']) > 0:
         wallpaper_url = response.json()['data'][0]['url']
+        wp = response.json()['data'][0]['path']
         embed = discord.Embed(title='Wallpaper',
-                              description='[Source] ' + wallpaper_url,
+                              description=f"[Source]({wallpaper_url})",
                               colour=0xbe132d)
         embed = (embed.set_footer(text='This command is powered by wallhaven.cc',
                                   icon_url=footer_url)
-                      .set_image(url=wallpaper_url))
+                      .set_image(url=wp))
 
         await message.channel.send(embed=embed)
 
