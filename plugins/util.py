@@ -8,7 +8,7 @@ async def code_command(message):
     await message.channel.send(url)
 
 
-async def find_member(message, nickname):
+def find_member(message, nickname):
     """
     Finds the first memeber that matches the nickname
     on the guild where the message was sent.
@@ -33,9 +33,9 @@ async def find_member(message, nickname):
         if nickname in member.nick:
             await member
 
-    await None
+    None
 
-async def create_avatar_embed(message, user):
+def create_avatar_embed(message, user):
     """
     Creates an embed object that will contain the avatar
     of the user and will 'mention' the author of the original
@@ -66,4 +66,4 @@ async def create_avatar_embed(message, user):
     embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
     embed.set_image(url=avatarImage)
 
-    await embed
+    embed
