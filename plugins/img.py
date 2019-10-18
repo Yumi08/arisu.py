@@ -1,5 +1,5 @@
  # In dire need of optimization
-import util
+from . import util
 
 # Avatar command
 async def avatar_command(message):
