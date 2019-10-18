@@ -33,17 +33,8 @@ async def foo(ctx, arg):
     await ctx.send(arg)
 
 @bot.command()
-async def avatar(ctx, member: discord.Member): # Somehow, this needs to be moved to plugin/img.py
-                avatarImage = member.avatar_url
-                os.system('curl -o .img.png {}'.format(avatarImage))
-                color_thief = ColorThief('.img.png')
-                dominant_color = color_thief.get_color(quality=1)
-                os.system('rm .img.png')
-                clr = '0x' + '%02X%02X%02X' % dominant_color
-                clr = int(clr, base=16)
-                embed = discord.Embed(title="Avatar of {}".format(member.name), color=clr)
-                embed.set_image(url=avatarImage)
-                await ctx.send(embed=embed)
+async def avatar(ctx):
+                await  img.avatar_command(ctx.message)
 
 # Welcome events
 @bot.event
