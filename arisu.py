@@ -22,24 +22,29 @@ async def on_ready():
 # a!hello
 @bot.command()
 async def hi(ctx):
+    """ Hi """
     await ctx.send("hi")
 
 ## Commands ##
 
 @bot.command()
-async def foo(ctx, arg):
+async def say(ctx, arg):
+    """ Repeat after me """
     await ctx.send(arg)
 
 @bot.command()
 async def avatar(ctx):
+    """ Get an avatar """
     await  img.avatar_command(ctx.message)
 
 @bot.command()
 async def pape(ctx):
+    """ Get a pape. No search query gives a random wallpaper."""
     await img.pape(ctx.message)
 
 @bot.command()
 async def memcount(ctx):
+    """ Counts all the members in a guild """
     await util.memcount(ctx.message)
 
 # Welcome events
