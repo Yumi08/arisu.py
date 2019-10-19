@@ -38,6 +38,10 @@ async def avatar(ctx):
 async def pape(ctx):
     await img.pape(ctx.message)
 
+@bot.command()
+async def memcount(ctx):
+    await util.memcount(ctx.message)
+
 # Welcome events
 @bot.event
 async def on_member_join(member):
