@@ -67,12 +67,6 @@ def create_avatar_embed(message, user):
 
     return embed
 
-"""
-addCommand("memcount", ({ message }) => {
-  message.channel.send(`This server has ${message.guild.memberCount} members.`);
-});
-"""
-
 async def memcount(message):
     number = message.guild.member_count
     await message.channel.send('This server has {} members.'.format(number))
