@@ -56,13 +56,13 @@ def create_avatar_embed(message, user):
     requestor = message.author
     name = user.name
     avatarImage = user.avatar_url
-    os.system('curl -o .img.png {}'.format(avatarImage))
+    os.system(f'curl -o .img.png {avatarImage}')
     color_thief = ColorThief('.img.png')
     dominant_color = color_thief.get_color(quality=1)
     os.system('rm .img.png')
     clr = '0x' + '%02X%02X%02X' % dominant_color
     clr = int(clr, base=16)
-    embed = discord.Embed(title="Avatar of {}".format(name), value=requestor, color=clr)
+    embed = discord.Embed(title=f"Avatar of {name}", value=requestor, color=clr)
     embed.set_image(url=avatarImage)
 
     return embed

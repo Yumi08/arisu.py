@@ -11,12 +11,12 @@ from plugins import color, bot_help, img, log, mod, util, welcome
 # Vars
 token = os.environ.get("TOKEN")
 prefix = os.environ.get("PREFIX")
-bot = commands.Bot(command_prefix='{}'.format(prefix))
+bot = commands.Bot(command_prefix=f'{prefix}')
 
 # Startup
 @bot.event
 async def on_ready():
-    print('Logged in as {0.user}'.format(bot))
+    print(f'Logged in as {bot}')
 
 
 # a!hello

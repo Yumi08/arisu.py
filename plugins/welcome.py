@@ -6,11 +6,11 @@ client = discord.Client()
 async def mem_join(member):
      guild = member.guild
      if guild.system_channel is not None:
-        msg = 'Welcome {0.mention}!'.format(member)
+        msg = f'Welcome {member}!'
         await guild.system_channel.send(msg)
 
 async def mem_leave(member):
      guild = member.guild
      if guild.system_channel is not None:
-        msg = 'Bye **{0.name}**!'.format(member)
+        msg = f'Bye **{member}**!'
         await guild.system_channel.send(msg)
