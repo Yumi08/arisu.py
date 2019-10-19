@@ -6,7 +6,7 @@ load_dotenv()
 
 
 # Import bot "plugins".
-from plugins import (color, bot_help, img, log, mod, util, welcome)
+from plugins import color, bot_help, img, log, mod, util, welcome
 
 # Vars
 token = os.environ.get("TOKEN")
