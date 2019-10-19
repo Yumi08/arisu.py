@@ -47,6 +47,26 @@ async def memcount(ctx):
     """ Counts all the members in a guild """
     await util.memcount(ctx.message)
 
+@bot.command()
+async def kick(ctx):
+    """ Kicks a member """
+    await mod.kick(ctx.message)
+
+@bot.command()
+async def ban(ctx):
+    """ Bans a member """
+    await mod.ban(ctx.message)
+
+@bot.command()
+async def mute(ctx):
+    """ Mutes a member """
+    await mod.mute(ctx.message)
+
+@bot.command()
+async def unmute(ctx):
+    """ Unmutes a member """
+    await mod.unmute(ctx.message)
+
 # Welcome events
 @bot.event
 async def on_member_join(member):

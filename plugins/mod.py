@@ -7,7 +7,7 @@ async def kick(message):
             if message.author.guild_permissions.administrator:
                 server = user.guild
                 await server.kick(user)
-                await message.channel.send(f'**{user}** has been kicked)')
+                await message.channel.send(f'**{user}** has been kicked')
 
 
 async def ban(message):
