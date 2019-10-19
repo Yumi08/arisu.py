@@ -27,45 +27,58 @@ async def hi(ctx):
 
 ## Commands ##
 
-@bot.command()
-async def say(ctx, arg):
-    """ Repeat after me """
-    await ctx.send(arg)
+class Utils(commands.Cog):
+    
+    @commands.command()
+    async def say(self, ctx, arg):
+        """ Repeat after me """
+        await ctx.send(arg)
 
-@bot.command()
-async def avatar(ctx):
-    """ Get an avatar """
-    await  img.avatar_command(ctx.message)
+    @commands.command()
+    async def avatar(self, ctx):
+        """ Get an avatar """
+        await  img.avatar_command(ctx.message)
 
-@bot.command()
-async def pape(ctx):
-    """ Get a pape. No search query gives a random wallpaper."""
-    await img.pape(ctx.message)
+    @commands.command()
+    async def memcount(self, ctx):
+            """ Counts all the members in a guild """
+            await util.memcount(ctx.message)
 
-@bot.command()
-async def memcount(ctx):
-    """ Counts all the members in a guild """
-    await util.memcount(ctx.message)
+bot.add_cog(Utils())
 
-@bot.command()
-async def kick(ctx):
-    """ Kicks a member """
-    await mod.kick(ctx.message)
 
-@bot.command()
-async def ban(ctx):
-    """ Bans a member """
-    await mod.ban(ctx.message)
+class Image(commands.Cog):
+    
+    @commands.command()
+    async def pape(self, ctx):
+        """ Get a pape. No search query gives a random wallpaper."""
+        await img.pape(ctx.message)
 
-@bot.command()
-async def mute(ctx):
-    """ Mutes a member """
-    await mod.mute(ctx.message)
+bot.add_cog(Image())
 
-@bot.command()
-async def unmute(ctx):
-    """ Unmutes a member """
-    await mod.unmute(ctx.message)
+class Admin(commands.Cog):
+
+    @commands.command()
+    async def kick(self, ctx):
+        """ Kicks a member """
+        await mod.kick(ctx.message)
+
+    @commands.command()
+    async def ban(self, ctx):
+        """ Bans a member """
+        await mod.ban(ctx.message)
+
+    @commands.command()
+    async def mute(self, ctx):
+        """ Mutes a member """
+        await mod.mute(ctx.message)
+
+    @commands.command()
+    async def unmute(self, ctx):
+        """ Unmutes a member """
+        await mod.unmute(ctx.message)
+
+bot.add_cog(Admin())
 
 # Welcome events
 @bot.event
