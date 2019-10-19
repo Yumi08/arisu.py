@@ -16,7 +16,7 @@ bot = commands.Bot(command_prefix=f'{prefix}')
 # Startup
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot}')
+    print(f'Logged in as {bot.user}')
 
 
 # a!hello
