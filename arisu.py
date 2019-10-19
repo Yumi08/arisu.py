@@ -1,7 +1,5 @@
 import discord
 import os
-import time
-from colorthief import ColorThief
 from discord.ext import commands
 from dotenv import load_dotenv
 load_dotenv()
