@@ -36,3 +36,8 @@ async def unmute(message):
                 role = discord.utils.get(server.roles, name="silenced")
                 await user.remove_roles(role)
 
+async def purge(message, n_purge):
+    if message.author.guild_permissions.administrator:
+        channel = message.channel
+        await channel.purge(limit=n_purge)
+

@@ -28,7 +28,7 @@ async def hi(ctx):
 ## Commands ##
 
 class Utils(commands.Cog):
-    
+
     @commands.command()
     async def say(self, ctx, arg):
         """ Repeat after me """
@@ -48,7 +48,7 @@ bot.add_cog(Utils())
 
 
 class Image(commands.Cog):
-    
+
     @commands.command()
     async def pape(self, ctx):
         """ Get a pape. No search query gives a random wallpaper."""
@@ -77,6 +77,15 @@ class Admin(commands.Cog):
     async def unmute(self, ctx):
         """ Unmutes a member """
         await mod.unmute(ctx.message)
+
+    @commands.command()
+    async def purge(self, ctx):
+        """Purges 'n' messages"""
+        args = ctx.message.content.split()
+
+        if len(args) >= 2:
+            n_purge = int(args[1])
+            await mod.purge(ctx.message, n_purge)
 
 bot.add_cog(Admin())
 
