@@ -98,5 +98,18 @@ async def on_member_join(member):
 async def on_member_remove(member):
     await welcome.mem_leave(member)
 
+# Logging events
+@bot.event
+async def on_message_delete(message):
+    await log.msg_delete(message)
+
+@bot.event
+async def on_bulk_message_delete(messages):
+    await log.blk_msg_delete(messages)
+
+@bot.event
+async def on_message_edit(before, after):
+    await log.msg_edit(before, after)
+
 # Run it 
 bot.run(token)
