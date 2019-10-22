@@ -1,6 +1,5 @@
 import discord
 
-
 async def kick(message):
     if len(message.mentions) > 0:
         for user in message.mentions:
@@ -40,4 +39,3 @@ async def purge(message, n_purge):
     if message.author.guild_permissions.administrator:
         channel = message.channel
         await channel.purge(limit=n_purge)
-

@@ -70,5 +70,3 @@ def create_avatar_embed(message, user):
 async def memcount(message):
     number = message.guild.member_count
     await message.channel.send(f'This server has {number} members.')
-
-
