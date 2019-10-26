@@ -94,10 +94,12 @@ bot.add_cog(Admin())
 @bot.event
 async def on_member_join(member):
     await welcome.mem_join(member)
+    await log_member_join(member) # Bad solution please fix
 
 @bot.event
 async def on_member_remove(member):
     await welcome.mem_leave(member)
+    await log_member_leave(member) # Also this
 
 # Logging events
 @bot.event
@@ -106,6 +108,29 @@ async def on_message_delete(message):
     embed.add_field(name="Content", value=message.content)
     channel = bot.get_channel(int(logchan))
     await channel.send(embed = embed)
+
+@bot.event
+async def on_message_edit(message1, message2):
+    embed = discord.Embed(title="Message Edited")
+    embed.add_field(name="From", value=message1.content)
+    embed.add_field(name="To", value=message2.content)
+    channel = bot.get_channel(int(logchan))
+    await channel.send(embed = embed)
+
+async def log_member_join(member):
+    embed = discord.Embed(title="Member Joined")
+    embed.add_field(name="Name", value=member)
+    embed.set_footer(text=f'ID: {member.id}')
+    channel = bot.get_channel(int(logchan))
+    await channel.send(embed = embed)
+
+async def log_member_leave(member):
+    embed = discord.Embed(title="Member Left")
+    embed.add_field(name="Name", value=member)
+    embed.set_footer(text=f'ID: {member.id}')
+    channel = bot.get_channel(int(logchan))
+    await channel.send(embed = embed)
+
 
 # Run it 
 bot.run(token)
