@@ -6,11 +6,12 @@ load_dotenv()
 
 
 # Import bot "plugins".
-from plugins import color, bot_help, img, log, mod, util, welcome
+from plugins import color, bot_help, img, mod, util, welcome
 
 # Vars
 token = os.environ.get("TOKEN")
 prefix = os.environ.get("PREFIX")
+logchan = os.environ.get("LOGCHAN")
 bot = commands.Bot(command_prefix=f'{prefix}')
 
 # Startup
@@ -101,15 +102,10 @@ async def on_member_remove(member):
 # Logging events
 @bot.event
 async def on_message_delete(message):
-    await log.msg_delete(message)
-
-@bot.event
-async def on_bulk_message_delete(messages):
-    await log.blk_msg_delete(messages)
-
-@bot.event
-async def on_message_edit(before, after):
-    await log.msg_edit(before, after)
+    embed = discord.Embed(title="Message Deleted")
+    embed.add_field(name="Content", value=message.content)
+    channel = bot.get_channel(int(logchan))
+    await channel.send(embed = embed)
 
 # Run it 
 bot.run(token)
